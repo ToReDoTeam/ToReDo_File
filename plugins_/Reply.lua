@@ -1,10 +1,10 @@
 function Reply(msg)
 local text = msg.content_.text_
-if text == 'تفعيل ردود السورس' and Manager(msg) then  
+if text == 'تفعيل ردود السورس' and Owners(msg) then  
 send(msg.chat_id_, msg.id_, '܁༯┆ههلو عمري 💞 ܰ \n܁༯┆تم تفعيل ردود السورس 💞 ܰ ')
 redis:del(ToReDo..'ToReDo:Reply:SoUrcE'..msg.chat_id_)
 end
-if text == 'تعطيل ردود السورس' and Manager(msg) then  
+if text == 'تعطيل ردود السورس' and Owners(msg) then  
 send(msg.chat_id_, msg.id_, '܁༯┆ههلو عمري 💞 ܰ \n܁༯┆تم تعطيل ردود السورس 💞 ܰ')
 redis:set(ToReDo..'ToReDo:Reply:SoUrcE'..msg.chat_id_, true)
 end
