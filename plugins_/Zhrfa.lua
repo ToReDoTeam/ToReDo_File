@@ -2,11 +2,11 @@ function Zhrfa(msg)
 local text = msg.content_.text_
 if text == 'تفعيل الزخرفه' and Owners(msg) then  
 send(msg.chat_id_, msg.id_, '܁༯┆ههلو عمري 💞 ܰ \n܁༯┆تم تفعيل الزخرفه 💞 ܰ')
-redis:del(ToReDo..'ToReDo:Zhrfa'..msg.chat_id_)
+redis:set(ToReDo..'ToReDo:Zhrfa'..msg.chat_id_)
 end
 if text == 'تعطيل الزخرفه' and Owners(msg) then  
 send(msg.chat_id_, msg.id_, '܁༯┆ههلو عمري 💞 ܰ \n܁༯┆تم تعطيل الزخرفه 💞 ܰ')
-redis:set(ToReDo..'ToReDo:Zhrfa'..msg.chat_id_, true)
+redis:del(ToReDo..'ToReDo:Zhrfa'..msg.chat_id_, true)
 end
 if text and text:match("^زخرفه انكلش (.*)$") and redis:get(ToReDo..'ToReDo:Zhrfa'..msg.chat_id_) then
 local textZzZ = text:match("^زخرفه انكلش (.*)$")
@@ -16,7 +16,7 @@ t = "\n٭ 𖤓┆قائمة الزخرفةه 💞◟\n܀⠤⠤⠤⠤⠤⠤⠤⠤
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.."゠ "..v.." \n"
+t = t..i.."゠ `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -29,7 +29,7 @@ t = "\n٭ 𖤓┆قائمة الزخرفةه 💞◟\n܀⠤⠤⠤⠤⠤⠤⠤⠤
 i = 0
 for k,v in pairs(zx.ok) do
 i = i + 1
-t = t..i.."゠ "..v.." \n"
+t = t..i.."゠ `"..v.."` \n"
 end
 send(msg.chat_id_, msg.id_, t)
 end
